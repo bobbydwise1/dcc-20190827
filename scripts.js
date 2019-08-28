@@ -57,27 +57,32 @@ const findLargestWord = (yourArrayOfStrings) => {
     }
     //console.log(output)
   }
-  return output;
+  if (output.length != 0) {
+    return output;
+  } else {
+    return null;
+  }
 }
 
-let test0 = 'aabcdcb'
-let expResult0 = 'bcdcb'
-let test1 = 'bananas'
-let expResult1 = 'anana'
-
-let result0 = findPallySub(test0)
-let result1 = findPallySub(test1)
-
-console.log(result0)
-console.log(result1)
-console.log(findLargestWord(result0))
-
+// let test0 = 'aabcdcb'
+// let expResult0 = 'bcdcb'
+// let test1 = 'bananas'
+// let expResult1 = 'anana'
+// let result0 = findPallySub(test0)
+// let result1 = findPallySub(test1)
+// console.log(result0)
+// console.log(result1)
+// console.log(findLargestWord(result0))
+// console.log(findLargestWord(result1))
 
 $(document).ready(function() {
   $('#form1').submit(function(event){
     event.preventDefault()
-    let output0 = 1
-    console.log(output1)
-    $('#output-section-0').text(output0)
+    let input0 = $('#input-section-0').val()
+    console.log(input0)
+    let input1 = findPallySub(input0)
+    let output0 = findLargestWord(input1)
+    $('#output-section-0').text(JSON.stringify(input1))
+    $('#output-section-1').text(output0)
   })
 });

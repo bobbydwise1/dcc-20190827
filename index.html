@@ -22,14 +22,20 @@
     <p>Given a string, find the longest palindromic contiguous substring. If there are more than one with the maximum length, return any one.</p>
 
     <p>For example, the longest palindromic substring of "aabcdcb" is "bcdcb". The longest palindromic substring of "bananas" is "anana".</p>
-    <div>
-      <h4><b>Answer:</b></h4>
+    <h4><b>Answer:</b></h4>
+    <div style='border: 2px solid black; padding: 10px'>
       <form id='form1'>
-        <p>Press button to start: <button id='button1' type='submit'>Submit</button></p>
-      </form>
+        <p>Submit a string to test: <br>
+          <input id='input-section-0' type='text' required placeholder='bananas'></input></p>
+          <p><button id='button1' type='submit'>Submit</button></p>
+        </form>
+      </div>
       <br>
-      <p><b>Result: <span id='output-section-0'></span></b></p>
+      <div style='border: 2px solid black; padding: 10px'>
+        <p><b>Results: </b></p>
+        <p>All palindromes found: <b><span id='output-section-0'></span></b></p>
+        <p>Largest palindrome found: <b><span id='output-section-1'></span></b></p>
+      </div>
     </div>
-  </div>
-</body>
-</html>
+  </body>
+  </html>
