@@ -8,6 +8,14 @@ Given a string, find the longest palindromic contiguous substring. If there are 
 For example, the longest palindromic substring of "aabcdcb" is "bcdcb". The longest palindromic substring of "bananas" is "anana".
 */
 
+const reverseString = (yourString) => {
+  let output = '';
+  for ( i = yourString.length-1; i >= 0; i-- ) {
+    output = output + yourString[i]
+  }
+  return output;
+}
+
 const findFirst = (yourString,searchTerm) => {
   return yourString.indexOf(searchTerm)
 }
@@ -16,13 +24,12 @@ const findLast = (yourString,searchTerm) => {
   return yourString.lastIndexOf(searchTerm)
 }
 
-const cleanReplace = (yourString,searchTerm,replaceTerm) => {
-  let temp = yourstring.slice();
-  return temp.replace(searchTerm,replaceTerm)
+const findReplace = (yourString,searchTerm,replaceTerm) => {
+  return yourString.replace(searchTerm,replaceTerm)
 }
 
 const findPallySub = (yourString) => {
-  return yourString.search('bcd'.reverse())
+  
 }
 
 let test0 = 'aabcdcb'
@@ -30,7 +37,7 @@ let result0 = 'bcdcb'
 let test1 = 'bannanas'
 let result1 = 'anana'
 
-console.log(findPallySub(test0))
+// console.log(findPallySub(test0))
 
 $(document).ready(function() {
   $('#form1').submit(function(event){
