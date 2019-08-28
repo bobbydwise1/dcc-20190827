@@ -10,8 +10,8 @@ For example, the longest palindromic substring of "aabcdcb" is "bcdcb". The long
 
 const reverseString = (yourString) => {
   let output = '';
-  for ( i = yourString.length-1; i >= 0; i-- ) {
-    output = output + yourString[i]
+  for ( j = yourString.length-1; j >= 0; j-- ) {
+    output = output + yourString[j]
   }
   return output;
 }
@@ -36,11 +36,12 @@ const chopInHalf = (yourString,leftBool) => {
   }
 }
 
-const detectPally = (yourString) => {
-  if ((yourString.length == 0) || (yourString.length == 1)) {
-    return null;
+const detectPally = (candString) => {
+  console.log(candString)
+  if ((candString.length == 0) || (candString.length == 1)) {
+    return false;
   } else {
-    if (yourString.slice(0,Math.floor(yourString.length/2)) == reverseString(yourString.slice(Math.ceil(yourString.length/2)))) {
+    if (candString.slice(0,Math.floor(candString.length/2)) == reverseString(candString.slice(Math.ceil(candString.length/2)))) {
       return true;
     }
       return false
@@ -48,22 +49,35 @@ const detectPally = (yourString) => {
   }
 
 const findPallySub = (yourString) => {
-  let temp = yourString.slice();
+  let temp = yourString.slice()
   let chopped;
-  for ( i = 0; i < temp.length; i++ ) {
-    chopped = temp.slice(i+1)
-    chopped = chopInHalf(chopped)
-    console.log(chopped)
+  let output = [];
+  for (let k = 0; k < yourString.length-1; k++) {
+    if ( k == 0 ) {
+      temp = yourString.slice(0)
+    } else {
+      temp = yourString.slice(0,-k)
+    }
+    console.log(temp)
+    for (let i = 0; i < temp.length-1; i++ ) {
+      chopped = temp.slice(i)
+      console.log('i is: ', i, ' , chopped is: ', chopped)
+      if (detectPally(chopped)) {
+        output.push(chopped)
+      }
+    }
   }
-  return 1
+  return output;
 }
 
 let test0 = 'aabcdcb'
 let result0 = 'bcdcb'
-let test1 = 'bannanas'
+let test1 = 'bananas'
 let result1 = 'anana'
 
-// console.log(findPallySub(test0))
+console.log(findPallySub(test0))
+console.log(findPallySub(test1))
+
 
 $(document).ready(function() {
   $('#form1').submit(function(event){
