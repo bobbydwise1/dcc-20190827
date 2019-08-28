@@ -28,8 +28,23 @@ const findReplace = (yourString,searchTerm,replaceTerm) => {
   return yourString.replace(searchTerm,replaceTerm)
 }
 
+const chopInHalf = (yourString,leftBool) => {
+  if (leftBool == 1) {
+    return yourString.slice(0,Math.ceil(yourString.length/2))
+  } else {
+    return yourString.slice(Math.floor(yourString.length/2))
+  }
+}
+
 const findPallySub = (yourString) => {
-  
+  let temp = yourString.slice();
+  let chopped;
+  for ( i = 0; i < temp.length; i++ ) {
+    chopped = temp.slice(i+1)
+    chopped = chopInHalf(chopped)
+    console.log(chopped)
+  }
+  return 1
 }
 
 let test0 = 'aabcdcb'
