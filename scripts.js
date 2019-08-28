@@ -8,7 +8,16 @@ Given a string, find the longest palindromic contiguous substring. If there are 
 For example, the longest palindromic substring of "aabcdcb" is "bcdcb". The longest palindromic substring of "bananas" is "anana".
 */
 
-console.log(rand5())
+const findPallySub = (yourString) => {
+  return yourString.search(yourString.slice(0,1))
+}
+
+let test0 = 'aabcdcb'
+let result0 = 'bcdcb'
+let test1 = 'bannanas'
+let result1 = 'anana'
+
+console.log(findPallySub(test0))
 
 $(document).ready(function() {
   $('#form1').submit(function(event){
