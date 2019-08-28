@@ -16,28 +16,7 @@ const reverseString = (yourString) => {
   return output;
 }
 
-const findFirst = (yourString,searchTerm) => {
-  return yourString.indexOf(searchTerm)
-}
-
-const findLast = (yourString,searchTerm) => {
-  return yourString.lastIndexOf(searchTerm)
-}
-
-const findReplace = (yourString,searchTerm,replaceTerm) => {
-  return yourString.replace(searchTerm,replaceTerm)
-}
-
-const chopInHalf = (yourString,leftBool) => {
-  if (leftBool == 1) {
-    return yourString.slice(0,Math.ceil(yourString.length/2))
-  } else {
-    return yourString.slice(Math.floor(yourString.length/2))
-  }
-}
-
 const detectPally = (candString) => {
-  console.log(candString)
   if ((candString.length == 0) || (candString.length == 1)) {
     return false;
   } else {
@@ -58,10 +37,10 @@ const findPallySub = (yourString) => {
     } else {
       temp = yourString.slice(0,-k)
     }
-    console.log(temp)
+    //console.log(temp)
     for (let i = 0; i < temp.length-1; i++ ) {
       chopped = temp.slice(i)
-      console.log('i is: ', i, ' , chopped is: ', chopped)
+      //console.log('i is: ', i, ' , chopped is: ', chopped)
       if (detectPally(chopped)) {
         output.push(chopped)
       }
@@ -70,13 +49,28 @@ const findPallySub = (yourString) => {
   return output;
 }
 
-let test0 = 'aabcdcb'
-let result0 = 'bcdcb'
-let test1 = 'bananas'
-let result1 = 'anana'
+const findLargestWord = (yourArrayOfStrings) => {
+  let output = '';
+  for (let q = 0; q < yourArrayOfStrings.length; q++) {
+    if (yourArrayOfStrings[q].length > output.length) {
+      output = yourArrayOfStrings[q]
+    }
+    //console.log(output)
+  }
+  return output;
+}
 
-console.log(findPallySub(test0))
-console.log(findPallySub(test1))
+let test0 = 'aabcdcb'
+let expResult0 = 'bcdcb'
+let test1 = 'bananas'
+let expResult1 = 'anana'
+
+let result0 = findPallySub(test0)
+let result1 = findPallySub(test1)
+
+console.log(result0)
+console.log(result1)
+console.log(findLargestWord(result0))
 
 
 $(document).ready(function() {
