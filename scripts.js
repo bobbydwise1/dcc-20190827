@@ -36,6 +36,17 @@ const chopInHalf = (yourString,leftBool) => {
   }
 }
 
+const detectPally = (yourString) => {
+  if ((yourString.length == 0) || (yourString.length == 1)) {
+    return null;
+  } else {
+    if (yourString.slice(0,Math.floor(yourString.length/2)) == reverseString(yourString.slice(Math.ceil(yourString.length/2)))) {
+      return true;
+    }
+      return false
+    }
+  }
+
 const findPallySub = (yourString) => {
   let temp = yourString.slice();
   let chopped;
